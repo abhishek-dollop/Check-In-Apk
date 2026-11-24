@@ -17,6 +17,7 @@ import {
     ToastAndroid,
     PermissionsAndroid,
     KeyboardAvoidingView,
+    Image,
 } from 'react-native';
 import { Camera as RNCamera, CameraType } from 'react-native-camera-kit';
 import checkinService from '../Api-Services/checkinService';
@@ -753,8 +754,14 @@ const CheckinScan = ({ eventId: propEventId, navigation, route, onLogout } = {})
 
                     <View style={styles.navbarCenter}>
                         <View style={styles.titleRow}>
-                            <QrCode size={22} color="#c084fc" />
-                            <Text style={styles.navbarTitle}> Gate Check-In</Text>
+                            <View style={styles.navbarLogoBadge}>
+                                <Image
+                                    source={require('../assets/logo.png')}
+                                    style={styles.navbarLogoImage}
+                                    resizeMode="contain"
+                                />
+                            </View>
+                            <Text style={styles.navbarTitle}>RU CheckIn</Text>
                         </View>
                         <Text style={styles.navbarSubtitle}>Pass Verification & Entry Scanner</Text>
                     </View>
@@ -1606,6 +1613,22 @@ const styles = StyleSheet.create({
         fontSize: 18,
         fontWeight: 'bold',
         color: '#ffffff',
+    },
+    navbarLogoBadge: {
+        width: 32,
+        height: 32,
+        borderRadius: 8,
+        backgroundColor: '#13182b',
+        borderWidth: 1,
+        borderColor: '#9333ea',
+        alignItems: 'center',
+        justifyContent: 'center',
+        marginRight: 8,
+        padding: 3,
+    },
+    navbarLogoImage: {
+        width: '100%',
+        height: '100%',
     },
     navbarSubtitle: {
         fontSize: 11,

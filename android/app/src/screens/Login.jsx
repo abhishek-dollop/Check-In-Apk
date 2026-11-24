@@ -11,6 +11,7 @@ import {
   ScrollView,
   StatusBar,
   ToastAndroid,
+  Image,
 } from 'react-native';
 import authService from '../Api-Services/authService';
 
@@ -81,10 +82,14 @@ const Login = ({ onLoginSuccess } = {}) => {
         {/* Header Branding */}
         <View style={styles.header}>
           <View style={styles.logoBadge}>
-            <Text style={styles.logoIcon}>☵</Text>
+            <Image
+              source={require('../assets/logo.png')}
+              style={styles.logoImage}
+              resizeMode="contain"
+            />
           </View>
-          <Text style={styles.appTitle}>Event Check-In</Text>
-          <Text style={styles.appSubtitle}>Gatekeeper & Admin Portal</Text>
+          <Text style={styles.appTitle}>RU CheckIn</Text>
+          <Text style={styles.appSubtitle}>Gatekeeper & Pass Verification Portal</Text>
         </View>
 
         {/* Login Card */}
@@ -194,9 +199,9 @@ const styles = StyleSheet.create({
     marginBottom: 28,
   },
   logoBadge: {
-    width: 68,
-    height: 68,
-    borderRadius: 20,
+    width: 76,
+    height: 76,
+    borderRadius: 22,
     backgroundColor: '#13182b',
     borderWidth: 1.5,
     borderColor: '#9333ea',
@@ -208,11 +213,11 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.35,
     shadowRadius: 10,
     elevation: 8,
+    padding: 8,
   },
-  logoIcon: {
-    fontSize: 32,
-    color: '#c084fc',
-    fontWeight: 'bold',
+  logoImage: {
+    width: '100%',
+    height: '100%',
   },
   appTitle: {
     fontSize: 24,
